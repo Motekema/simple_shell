@@ -2,10 +2,15 @@
 #include <string.h>
 
 /**
-* Remove newline character
-* Input Name and Age 
-* Results: print Name and Age
-*/
+ * main - Entry point of the program
+ *
+ * Description:
+ * This program prompts the user to enter their name and age, then displays
+ * the entered values. It uses the fgets function to read input and removes
+ * the newline character to ensure correct formatting.
+ *
+ * Return: 0 (Success)
+ */
 
 int main(void)
 {
