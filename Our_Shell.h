@@ -6,13 +6,7 @@
 #include <string.h>
 #include <unistd.h> 
 
-int main(void);
-int main(int ac, char **av);
-int main(int ac, char **av, char **env);
-int main(int ac, char **av);
-char *_getenv(const char *name);
-int _setenv(const char *name, const char *value, int overwrite);
-int _unsetenv(const char *name);
-
+char **tokenize_input(const char *input);
+void execute_command(const char *command, char *const arguments[]);
 
 #endif
