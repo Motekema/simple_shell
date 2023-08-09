@@ -33,15 +33,14 @@ args[argc] = NULL;
 
 if ((pid = fork()) == 0) {
 execvp(args[0], args);
-perror("Error execvp");
+perror("Error of execvp");
 exit(1);
 } else if (pid < 0) {
-perror("Error forking");
+perror("Error of forking");
 } else {
 waitpid(pid, &status, 0);
 }
 }
-
-return 0;
+return (0);
 }
 
