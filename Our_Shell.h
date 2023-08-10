@@ -6,10 +6,12 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <stdbool.h>
 
 #define MAX_INPUT_LENGTH 100
 
 void parse_input(char *input, char **args, int *argc);
 void execute_command(char **args, int argc);
+bool commandExists(const char *command);
 
 #endif
