@@ -9,7 +9,7 @@
 
 #define MAX_INPUT_LENGTH 100
 
-char **tokenize_input(const char *input);
-void execute_command(const char *command, char *const arguments[]);
+void parse_input(char *input, char **args, int *argc);
+void execute_command(char **args, int argc);
 
 #endif
