@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h> 
+#include <unistd.h>
+#include <sys/wait.h>
+
+#define MAX_INPUT_LENGTH 100
 
 char **tokenize_input(const char *input);
 void execute_command(const char *command, char *const arguments[]);
