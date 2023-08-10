@@ -8,6 +8,7 @@ char *args[MAX_INPUT_LENGTH];
 char *token;
 pid_t pid;
 int status;
+int argc = 0;
 
 while (1) {
 char prompt[] = "#Motekema&Joshua$ ";
@@ -19,7 +20,6 @@ break;
 
 input[strcspn(input, "\n")] = '\0';
 
-int argc = 0;
 token = strtok(input, " ");
 while (token != NULL) {
 args[argc++] = token;
