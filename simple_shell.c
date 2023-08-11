@@ -1,18 +1,22 @@
+/*
+ * Simple Shell Implementation
+ * A basic shell program that reads user commands, forks child processes to execute them,
+ * and provides a simple command-line interface.
+ */
+
 #include "Our_Shell.h"
 #define MAX_INPUT_LENGTH 100
 
+
 /**
- * Tokenizes the user input command.
+ * @brief Main function of the Simple Shell program.
  *
- * This function takes the user input string.
- * Tokenizes it based on space characters.
- * It populates the args array with pointers to the tokens.
- * Returns the number of tokens found.
+ * This function implements a basic shell that reads user commands, tokenizes them,
+ * and forks a child process to execute the command. It provides a simple command-line interface.
  *
- * @param input The user input command.
- * @param args An array of pointers to store the tokens.
- * @return The number of tokens.
+ * @return 0 on successful execution.
  */
+
 
 int main(void)
 {
