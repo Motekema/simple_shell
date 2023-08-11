@@ -1,5 +1,19 @@
 #include "Our_Shell.h"
 #define MAX_INPUT_LENGTH 100
+
+/**
+ * Tokenizes the user input command.
+ *
+ * This function takes the user input string.
+ * Tokenizes it based on space characters.
+ * It populates the args array with pointers to the tokens.
+ * Returns the number of tokens found.
+ *
+ * @param input The user input command.
+ * @param args An array of pointers to store the tokens.
+ * @return The number of tokens.
+ */
+
 int main(void)
 {
 char input[MAX_INPUT_LENGTH];
