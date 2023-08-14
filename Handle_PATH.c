@@ -62,7 +62,7 @@ pid_t pid = fork();
 if (pid == 0)
 {
 execvp(args[0], args);
-char error_message[] = "Error with execvp\n";
+char error_message[] = "Error of execvp\n";
 write(STDERR_FILENO, error_message, sizeof(error_message) - 1);
 exit(1);
 }
