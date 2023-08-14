@@ -2,6 +2,7 @@
 
 #define MAX_INPUT_LENGTH 100
 
+char *path_copy = strdup(path);
 bool commandExists(const char *command) {
 
 	char *path = getenv("PATH");
@@ -9,7 +10,6 @@ bool commandExists(const char *command) {
 		perror("Error finding PATH");
 		exit(1);
 	}
-	char *path_copy = strdup(path);
 	char *dir = strtok(path_copy, ":");
 	while (dir != NULL) {
 		char cmd_path[MAX_INPUT_LENGTH];
@@ -70,5 +70,6 @@ bool commandExists(const char *command) {
 				}
 			}
 		}
-		return (0);
 	}
+	return (0);
+}
