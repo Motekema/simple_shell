@@ -23,7 +23,7 @@ args[*argc] = NULL;
 /**
  * Executes a command with the provided arguments.
  *
- * @param args An array of arguments, where the first argument is the command to execute.
+ * @param args An array of arguments,first argument is the command to execute.
  * @param argc The number of arguments in the array.
  */
 
