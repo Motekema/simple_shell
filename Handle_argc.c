@@ -1,7 +1,7 @@
 #include "Our_Shell.h"
 
 /**
- * Parses the input string into arguments.
+ * parse_input - Parses the input string into arguments.
  *
  * @param input The input string to parse.
  * @param args An array to store the parsed arguments.
@@ -21,10 +21,9 @@ args[*argc] = NULL;
 }
 
 /**
- * Executes a command with the provided arguments.
+ * execute_command - Executes a command with the provided arguments.
  *
- * @param args An array of arguments,first argument is the command to execute.
- * @param argc The number of arguments in the array.
+ * @param args An array of arguments, where the first argument is the command to execute.
  */
 
 void execute_coommand(char **args)
