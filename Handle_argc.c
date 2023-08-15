@@ -35,7 +35,7 @@ args[*argc] = NULL;
  * @param args An array of arguments, first argument is the command to execute.
  */
 
-void execute_coommand(char **args)
+void execute_command(char **args)
 {
 if (execvp(args[0], args) == -1)
 {
