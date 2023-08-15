@@ -1,11 +1,12 @@
 #include "Our_Shell.h"
 
+
 /**
- * parse_input - Parses the input string into arguments.
+ * parse_input - Parse the input string into arguments.
  *
- * This function takes an input string.
- * using space (' ') as a delimiter. The arguments are stored in the 'args'
- * array, and the number of arguments is updated in the 'argc' variable.
+ * This function takes an input string and tokenizes it using space (' ')
+ * as a delimiter. The parsed arguments are stored in the 'args' array,
+ * and the number of arguments is updated in the 'argc' variable.
  *
  * @param input The input string to be parsed.
  * @param args An array to store the parsed arguments.
@@ -25,12 +26,12 @@ args[*argc] = NULL;
 }
 
 /**
- * execute_command - Executes a command with the provided arguments.
+ * execute_command - Execute a command with the provided arguments.
  *
  * This function attempts to execute a command using the 'execvp' system call.
- * The 'args' array should contain the command to be executed as first element,
- * followed by its arguments. If the execution fails, an error
- * and the program exits with a failure status.
+ * The 'args' array should contain the command to be executed first element,
+ * followed by its arguments. If the execution fails, an error is displayed
+ * with a more informative message, the program exits with a failure status.
  *
  * @param args An array of arguments, first argument is the command to execute.
  */
