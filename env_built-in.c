@@ -2,6 +2,18 @@
 
 #define MAX_INPUT_LENGTH 100
 
+/**
+ * main - Entry point for the simple shell program.
+ *
+ * This program implements a basic shell that reads and executes user commands.
+ * It continuously prompts the user for input, reads the input, and processes
+ * it. If the input is "exit", the shell displays a termination message and
+ * exits the loop. If the input is "env", the program prints the current
+ * environment variables to the standard output.
+ *
+ * Return: Always 0.
+ */
+
 int main(void)
 {
 char input[MAX_INPUT_LENGTH];
