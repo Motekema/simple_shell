@@ -20,7 +20,7 @@ char input[MAX_INPUT_LENGTH];
 
 while (1)
 {
-write(1, "SimpleShell> ", 13);
+write(1, "#Motekema&Joshua$ ", 13);
 read(0, input, sizeof(input));
 
 /* Remove the newline character from input */
