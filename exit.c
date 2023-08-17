@@ -2,6 +2,14 @@
 
 #define MAX_INPUT_LENGTH 1024
 
+/**
+ * main - Entry point for the simple shell program.
+ *
+ * Implements a basic shell that reads and executes user commands.
+ *
+ * Return: Always 0.
+ */
+
 int main(void)
 {
 char input[MAX_INPUT_LENGTH];
