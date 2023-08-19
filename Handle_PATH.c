@@ -1,14 +1,14 @@
 #include "Our_Shell.h"
 #define MAX_INPUT_LENGTH 100
 
-/* Function to check if a command exists in the PATH
+/**
+ * commandExists - This function checks if a given command exists
+ * in the system's PATH.
+ * Function to check if a command exists in the PATH
  *
- * commandExists - This function checks if a given command exists in the system's PATH. 
- *
- * It iterates through the directories in the PATH, constructs the full path to the command, and checks if the command is executable. 
- * If the command is found and executable, the function returns true; otherwise, it returns false.
- *
- * */
+ * @param command: The name of the command to check for existence.
+ * @return true if the command exists and is executable, false otherwise.
+ */
 
 bool commandExists(const char *command)
 {
@@ -49,12 +49,19 @@ free(path_copy);
 return (false);
 }
 
-/* executeCommand - This function takes an array of strings (args) that represent the command and its arguments. 
- *
- * It forks a child process and attempts to execute the command using the execvp function. 
- * If the execvp call is successful, the child process will be replaced with the executed command. 
+/**
+ * executeCommand - This function takes an array of strings (args)
+ * that represent the command and its arguments.
+ * It forks a child process and attempts to execute the command
+ * using the execvp function.
+ * If the execvp call is successful, the child process will be
+ * replaced with the executed command.
  * If it fails, an error message is printed, and the child process exits.
- * Function to execute a command */
+ *
+ * @param args: An array of strings representing the command and its arguments.
+ */
+
+/* Function to execute a command */
 
 void executeCommand(char *args[])
 {
@@ -77,11 +84,17 @@ waitpid(pid, &status, 0);
 }
 
 /**
- * main - This is the entry point of the program. 
- * It continuously reads input from the user, tokenizes it into individual arguments, and stores them in the args array. 
- * It then checks if the entered command exists using the commandExists function. 
- * If the command exists, it calls the executeCommand function to run the command. 
+ * main - This is the entry point of the program.
+ * It continuously reads input from the user,
+ * tokenizes it into individual arguments, and stores
+ * them in the args array.
+ * It then checks if the entered command exists using
+ * the commandExists function.
+ * If the command exists, it calls the executeCommand
+ * function to run the command.
  * If the command is not found, an error message is displayed.
+ *
+ * Return: Always 0.
  */
 
 int main(void)
