@@ -11,7 +11,7 @@
 #define MAX_INPUT_LENGTH 100
 
 void parse_input(char *input, char **args, int *argc);
-void execute_command(char **args, int argc);
+void execute_command(char **args);
 bool commandExists(const char *command);
 
 #endif

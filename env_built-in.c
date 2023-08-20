@@ -1,4 +1,6 @@
 #include "Our_Shell.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 #define MAX_INPUT_LENGTH 100
 
@@ -20,7 +22,7 @@ char input[MAX_INPUT_LENGTH];
 
 while (1)
 {
-write(1, "#Motekema&Joshua$ ", 13);
+write(1, "#Motekema&Joshua$ ", 18);
 read(0, input, sizeof(input));
 
 /* Remove the newline character from input */
@@ -35,10 +37,13 @@ break;
 else if (strcmp(input, "env") == 0)
 {
 /* Print the current environment variables */
-for (char **env = environ; *env != NULL; env++)
+extern char **environ;
+char **env = environ;
+while (*env != NULL)
 {
 write(1, *env, strlen(*env));
 write(1, "\n", 1);
+env++;
 }
 }
 else
