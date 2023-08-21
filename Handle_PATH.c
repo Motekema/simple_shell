@@ -21,10 +21,10 @@ exit(1);
 
 char *path_copy = strdup(path);
 char *dir = strtok(path_copy, ":");
+char cmd_path[MAX_INPUT_LENGTH];
 
 while (dir != NULL)
 {
-char cmd_path[MAX_INPUT_LENGTH];
 int cmd_path_gen = strlen(dir) + 1 + strlen(command) + 1;
 
 if (cmd_path_gen > MAX_INPUT_LENGTH)
