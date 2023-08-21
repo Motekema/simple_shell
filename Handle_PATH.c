@@ -19,9 +19,10 @@ perror("Error finding PATH");
 exit(1);
 }
 
-char *path_copy = strdup(path);
-char *dir = strtok(path_copy, ":");
+char *path_copy;
+path_copy = strdup(path);
 char cmd_path[MAX_INPUT_LENGTH];
+char *dir = strtok(path_copy, ":");
 
 while (dir != NULL)
 {
