@@ -102,6 +102,7 @@ int main(void)
 char input[MAX_INPUT_LENGTH];
 char *args[MAX_INPUT_LENGTH];
 char *ticket;
+int argc = 0;
 
 while (1)
 {
@@ -115,7 +116,6 @@ break;
 
 input[strcspn(input, "\n")] = '\0';
 ticket = strtok(input, " ");
-int argc = 0;
 
 while (ticket != NULL)
 {
