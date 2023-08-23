@@ -11,7 +11,7 @@
 int main(int cc, char **so)
 
 {
-info_t info[] = { (info_t)INFO_INIT };
+info_t info = INFO_INIT;
 int cd = 2;
 asm ("mov %1, %0\n\t"
 
@@ -31,7 +31,7 @@ exit(126);
 if (errno == ENOENT)
 {
 _eputs(so[0]);
-_eputs(": 0: Can't open ");
+_eputs(": 0: Can not open ");
 _eputs(so[1]);
 _eputchar('\n');
 _eputchar(BUF_FLUSH);
@@ -39,10 +39,10 @@ exit(127);
 }
 return (EXIT_FAILURE);
 }
-info->readfd = cd;
+info.readfd = cd;
 }
-populate_env_list(info);
-read_history(info);
-hsh(info, so);
+populate_env_list(&info);
+read_history(&info);
+hsh(&info, so);
 return (EXIT_SUCCESS);
 }

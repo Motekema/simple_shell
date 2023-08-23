@@ -132,11 +132,11 @@ int _Our_help(info_t *);
 int _Our_history(info_t *);
 int _Our_alias(info_t *);
 
-/* toem_shloop.c */
+/* simple_shell.c */
 int hsh(info_t *, char **);
+void fork_cmd(info_t *);
 int find_builtin(info_t *);
 void find_cmd(info_t *);
-void fork_cmd(info_t *);
 
 
 /* toem_parser.c */
