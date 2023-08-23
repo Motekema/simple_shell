@@ -14,7 +14,11 @@
 #include <string.h>
 #include <dirent.h>
 #include <stdbool.h>
+#define MAX_INPUT_SIZE 1024
+#define MAX_PATH_SIZE 1024
 
+char *get_input();
+char *search_path(char *command, char *path);
 bool commandExists(const char *command);
 void parse_input(char *input, char **args, int *argc);
 void execute_command(char **args);
