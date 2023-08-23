@@ -128,6 +128,10 @@ int _Our_exit(info_t *);
 int _Our_cd(info_t *);
 int _Our_help(info_t *);
 
+/* built-ins_1.c */
+int _Our_history(info_t *);
+int _Our_alias(info_t *);
+
 /* toem_shloop.c */
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
@@ -191,10 +195,6 @@ void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
-
-/* toem_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
 
 /*toem_getline.c */
 ssize_t get_input(info_t *);
