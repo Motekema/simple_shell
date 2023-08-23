@@ -103,7 +103,7 @@ return (0);
 for (z = 1; info->argv[z]; z++)
 {
 d = _strchr(info->argv[z], '=');
-if (p)
+if (d)
 set_alias(info, info->argv[z]);
 else
 print_alias(node_starts_with(info->alias, info->argv[z], '='));
