@@ -13,7 +13,9 @@
 #include <fcntl.h>
 #include <string.h>
 #include <dirent.h>
+#include <stdbool.h>
 
+bool commandExists(const char *command);
 void parse_input(char *input, char **args, int *argc);
 void execute_command(char **args);
 bool commandExists(const char *command);
