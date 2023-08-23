@@ -11,7 +11,7 @@
 int main(int cc, char **so)
 
 {
-info_t info = INFO_INIT;
+info_t info[] = {INFO_INIT};
 int cd = 2;
 asm ("mov %1, %0\n\t"
 
@@ -39,10 +39,10 @@ exit(127);
 }
 return (EXIT_FAILURE);
 }
-info.readfd = cd;
+info->readfd = cd;
 }
-populate_env_list(&info);
-read_history(&info);
-hsh(&info, so);
+populate_env_list(info);
+read_history(info);
+hsh(info, so);
 return (EXIT_SUCCESS);
 }
