@@ -1,46 +1,95 @@
 #include "Our_Shell.h"
 
-
 /**
- * parse_input - Parse the input string into arguments.
+ * envir - a function which excutes the /bin/ls program to list files
+ * @line: an array of command and arguments
  *
- * This function takes an input string and tokenizes it using space (' ')
- * as a delimiter. The parsed arguments are stored in the 'args' array,
- * and the number of arguments is updated in the 'argc' variable.
- *
- * @param input The input string to be parsed.
- * @param args An array to store the parsed arguments.
- * @param argc A pointer to an integer to store the number of arguments.
+ * Return: returns 1 in success and -1 if it fails
  */
 
-void parse_input(char *input, char **args, int *argc)
+int envir(char *line[] __attribute__((unused)))
 {
-char *ticket = strtok(input, " ");
-*argc = 0;
-while (ticket != NULL)
+int i = 0;
+
+while (environ[i] != NULL)
 {
-args[(*argc)++] = ticket;
-ticket = strtok(NULL, " ");
+write(1, environ[i], strleng(environ[i]));
+write(1, "\n", 2);
+i++;
 }
-args[*argc] = NULL;
+free(line);
+return (1);
 }
 
 /**
- * execute_command - Execute a command with the provided arguments.
+ * maker - a function which excutes the /bin/ls program to list files
+ * @line: an array of command and arguments
  *
- * This function attempts to execute a command using the 'execvp' system call.
- * The 'args' array should contain the command to be executed first element,
- * followed by its arguments. If the execution fails, an error is displayed
- * with a more informative message, the program exits with a failure status.
- *
- * @param args An array of arguments, first argument is the command to execute.
+ * Return: returns 1 in success and -1 if it fails
  */
 
-void execute_command(char **args)
+int maker(char *line[])
 {
-if (execvp(args[0], args) == -1)
+int status;
+pid_t waiter, child;
+
+child = fork();
+if (child == -1)
+perror("Forking");
+
+if (child == 0)
 {
-perror("Error of executing command");
-exit(EXIT_FAILURE);
+execve("/bin/mkdir", line, NULL);
 }
+else
+{
+waiter = wait(&status);
+if (waiter == -1)
+perror("Waiting");
+}
+free(line);
+return (1);
+}
+
+/**
+ * stringer - a helper function to the string breaker
+ * @line: a string pointer
+ * @i: the index of the start of the string
+ * @str: a string pointer to the location
+ * @c: a character which specifys where to end the string
+ *
+ * Return: returns a string pointer
+ */
+
+char *stringer(char *line, int i, char *str, char c)
+{
+int k = 0;
+char *tmp;
+
+str = malloc(64);
+if (str == NULL)
+{
+perror("Couldn't Allocate");
+return (NULL);
+}
+while (line[i] != c && line[i] != '\0')
+{
+str[k] = line[i++];
+k++;
+if (k > 60)
+{
+tmp = realloc(str, (k + 8));
+if (!tmp)
+{
+perror("Error");
+return (NULL);
+}
+else
+str = tmp;
+}
+}
+
+str[k] = '\0';
+
+return (str);
 }

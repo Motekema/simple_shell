@@ -1,57 +1,96 @@
 #include "Our_Shell.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-
-#define MAX_INPUT_SIZE 1024
 
 /**
-* main - Entry point for the simple shell program.
-*
-* Implements a basic shell that reads and executes user commands.
-*
-* Return: Always 0.
-*/
+ * copyarray - a function to copy string array to another string array variable
+ * @line: a string array to be copied
+ * 
+ * Return: returns the copied array
+ */
 
-int main(void)
+char **copyarray(char **line)
 {
-char input[MAX_INPUT_SIZE];
+char **array;
+int i = 1;
 
-while (1)
+array = malloc(64);
+if (!array)
+return (NULL);
+
+while (line[i] != NULL)
 {
-printf("#Motekema&Joshua$ ");
-if (fgets(input, sizeof(input), stdin) == NULL)
-{
-if (feof(stdin))
-{
-printf("\nExiting the shell...\n");
-break;
+array[(i - 1)] = malloc(32);
+if (!array[(i - 1)])
+return (NULL);
+
+strcopy(line[i], array[(i - 1)]);
+i++;
 }
+
+return (array);
 }
 
-input[strcspn(input, "\n")] = '\0';  /* Remove the newline character */
+/**
+ * sigintHandler - a function to handle the ctrl-c signal
+ * @sig_num: an integer signal indicator
+ *
+ * Return: void function
+ */
 
-pid_t pid = fork();  /* Fork a new process */
-if (pid == 0)
-{  /* Child process */
-if (execlp(input, input, (char *)NULL) == -1)
+void sigintHandler(int sig_num __attribute__((unused)))
+{
+signal(SIGINT, sigintHandler);
+write(1, "\n", 2);
+printprompt(0);
+fflush(stdout);
+}
+
+/**
+ * main - a the main function of the shell
+ * @argc: the number of arguments given
+ * @argv: an array of given argument strings
+ *
+ * Return: returns an integer
+ */
+
+int main(int argc __attribute__((unused)), char **argv)
+{
+char *line;
+
+line = malloc(256);
+if (!line)
+{
+perror("Allocation");
+exit(1);
+}
+
+if (!isatty(STDIN_FILENO))
+{
+if (getstr(line) == (-1))
+{
+write(1, "\n", 2);
+exit(1);
+}
+if (shellprocessor(strbrk(line, ' '), argv) == -1)
 {
 perror("Error");
-exit(EXIT_FAILURE);
 }
+
+exit(0);
 }
-else if (pid > 0)
-{  /* Parent process */
-waitpid(pid, NULL, 0);  /* Wait for the child process to finish */
-}
-else
+
+do {
+printprompt(0);
+if (getstr(line) == (-1))
 {
-perror("Fork failed");
+write(1, "\n", 2);
+exit(0);
 }
+
+if ((shellprocessor(strbrk(line, ' '), argv)) == -1)
+{
+perror("Error");
 }
+} while (1);
 
 return (0);
 }
