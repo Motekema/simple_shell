@@ -123,6 +123,11 @@ int (*func)(info_t *);
 /* Storage.c */
 int dfree(void **);
 
+/* built_ins.c */
+int _Our_exit(info_t *);
+int _Our_cd(info_t *);
+int _Our_help(info_t *);
+
 /* toem_shloop.c */
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
@@ -186,11 +191,6 @@ void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
-
-/* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
 
 /* toem_builtin1.c */
 int _myhistory(info_t *);
