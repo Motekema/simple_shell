@@ -13,7 +13,7 @@ int hsh(info_t *info, char **av)
 
 ssize_t h = 0;
 int builtin_rest = 0;
-while (r != -1 && builtin_rest != -2)
+while (h != -1 && builtin_rest != -2)
 {
 clear_info(info);
 if (interactive(info))
