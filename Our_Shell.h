@@ -63,9 +63,11 @@ struct liststr *next;
 * @cmd_buf: address of pointer to cmd_buf, on if chaining
 * @fname: the program filename
 * @env: linked list local copy of environ
+* @cmd_buf_type: type of cmd_buf (CMD_AND, CMD_CHAIN)
 * @environ: custom modified copy of environ from LL env
 * @history: the history node
 * @argc: the argument count
+* @arg: a string generated from getline containing arguements
 * @line_count: the error count
 * @err_num: the error code for exit()s
 * @linecount_flag: if on count this line of input
@@ -93,7 +95,7 @@ char *path;
 int argc;
 unsigned int line_count;
 
-char **cmd_buf; /* point to cmd ; chain buffer,memory mangement */
+char **cmd_buf; /* point to cmd_buf_type ; chain buffer,memory mangement */
 int cmd_buf_type;
 int readfd;
 int histcount;
