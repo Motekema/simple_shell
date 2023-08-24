@@ -126,7 +126,7 @@ replace_string(&(info->argv[y]),
 _strdup(convert_number(getpid(), 10, 0)));
 continue;
 }
-node = node_starts_with(info->env, &info->argv[i][1], '=');
+node = node_starts_with(info->env, &info->argv[y][1], '=');
 if (node)
 {
 replace_string(&(info->argv[y]),
