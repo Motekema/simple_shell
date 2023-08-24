@@ -148,5 +148,105 @@ char *_strcat(char *, char *);
 int _Our_setenv(info_t *);
 int _Our_env(info_t *);
 int _Our_unsetenv(info_t *);
+char *_getenv(info_t *, const char *);
+int populate_env_list(info_t *);
+
+
+/* variables.c */
+int is_chain(info_t *, char *, size_t *);
+int replace_string(char **, char *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replace_vars(info_t *);
+int replace_alias(info_t *);
+
+/* Our_lists.c */
+void free_list(list_t **);
+list_t *add_node(list_t **, const char *, int);
+list_t *add_node_end(list_t **, const char *, int);
+int delete_node_at_index(list_t **, unsigned int);
+size_t print_list_str(const list_t *);
+
+/* Our_lists1.c */
+char **list_to_strings(list_t *);
+size_t list_len(const list_t *);
+size_t print_list(const list_t *);
+ssize_t get_node_index(list_t *, list_t *);
+list_t *node_starts_with(list_t *, char *, char);
+
+/* Our_history.c */
+int read_history(info_t *info);
+int write_history(info_t *info);
+int build_history_list(info_t *info, char *buf, int linecount);
+char *get_history_file(info_t *info);
+int renumber_history(info_t *info);
+
+/* Our_getenv.c */
+int _unsetenv(info_t *, char *);
+char **get_environ(info_t *);
+int _setenv(info_t *, char *, char *);
+
+/* Our_environ.c */
+int _myenv(info_t *);
+int populate_env_list(info_t *);
+int _mysetenv(info_t *);
+char *_getenv(info_t *, const char *);
+int _myunsetenv(info_t *);
+
+/* Our_getinfo.c */
+void set_info(info_t *, char **);
+void clear_info(info_t *);
+void free_info(info_t *, int);
+
+/* Our_getline.c */
+int _getline(info_t *, char **, size_t *);
+ssize_t get_input(info_t *);
+void sigintHandler(int);
+
+/* Our_errors1.c */
+char *convert_number(long int, int, int);
+int _erratoi(char *);
+void print_error(info_t *, char *);
+void remove_comments(char *);
+int print_d(int, int);
+
+/* Our_atoi.c */
+int is_delim(char, char *);
+int _isalpha(int);
+int interactive(info_t *);
+int _atoi(char *);
+
+/* Our_realloc.c */
+void ffree(char **);
+char *_memset(char *, char, unsigned int);
+void *_realloc(void *, unsigned int, unsigned int);
+
+/* toem_tokenizer.c */
+char **strtow2(char *, char);
+char **strtow(char *, char *);
+
+/* Our_exits.c */
+char *_strncpy(char *, char *, int);
+char *_strchr(char *, char);
+char *_strncat(char *, char *, int);
+
+/* _loophsh.c */
+int loophsh(char **);
+
+/* toem_errors.c */
+int _eputchar(char);
+void _eputs(char *);
+int _putsfd(char *str, int fd);
+int _putfd(char c, int fd);
+
+/* Our_shloop.c */
+void find_cmd(info_t *);
+int hsh(info_t *, char **);
+int find_builtin(info_t *);
+void fork_cmd(info_t *);
+
+/* Our_parser.c */
+char *dup_chars(char *, int, int);
+int is_cmd(info_t *, char *);
+char *find_path(info_t *, char *, char *)
 
 #endif
