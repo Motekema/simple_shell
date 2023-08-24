@@ -14,7 +14,7 @@ return (isatty(STDIN_FILENO) && info->readfd <= 2);
 
 /**
 * is_delim - if checks characters is a delimeter
-* @c: check characters
+* @e: check characters
 * @delim: delimeter string
 * Return: True if return 1, false if return 0
 */
@@ -29,8 +29,8 @@ return (0);
 
 /**
 * _isalpha - checks for alphabetic character
-* @c: The character to input
-* Return: if c is alphabetic return 1, otherwise return 0
+* @y: The character to input
+* Return: if y is alphabetic return 1, otherwise return 0
 */
 
 int _isalpha(int y)
