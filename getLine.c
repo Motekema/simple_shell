@@ -128,11 +128,11 @@ char *p = NULL, *new_p = NULL, *c;
 p = *ptr;
 if (p && length)
 z = *length;
-if (i == len)
+if (y == len)
 y = len = 0;
 
 v = read_buf(info, buf, &len);
-if (v == -1 || (r == 0 && len == 0))
+if (v == -1 || (v == 0 && len == 0))
 return (-1);
 
 c = _strchr(buf + y, '\n');
