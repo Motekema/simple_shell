@@ -1,74 +1,74 @@
-#include "shell.h"
+#include "Our_Shell.h"
 
 /**
- **_strncpy - copies a string
- *@dest: the destination string to be copied to
- *@src: the source string
- *@n: the amount of characters to be copied
- *Return: the concatenated string
- */
+**_strncpy - it copies a string
+*@dest: destination string to be copied to
+*@src: source string
+*@n: it is the amount of characters to be copied
+*Return: concatenated string
+*/
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i, j;
-	char *s = dest;
+int y, g;
+char *s = dest;
 
-	i = 0;
-	while (src[i] != '\0' && i < n - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	if (i < n)
-	{
-		j = i;
-		while (j < n)
-		{
-			dest[j] = '\0';
-			j++;
-		}
-	}
-	return (s);
+y = 0;
+while (src[y] != '\0' && y < n - 1)
+{
+dest[y] = src[y];
+i++;
+}
+if (y < n)
+{
+g = y;
+while (g < n)
+{
+dest[g] = '\0';
+g++;
+}
+}
+return (s);
 }
 
 /**
- **_strncat - concatenates two strings
- *@dest: the first string
- *@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
- */
+**_strncat - it concatenates two strings
+*@dest: first string
+*@src: its the second string
+*@n: its the amount of bytes to be maximally used
+*Return: it is the concatenated string
+*/
 char *_strncat(char *dest, char *src, int n)
 {
-	int i, j;
-	char *s = dest;
+int y, g;
+char *s = dest;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0' && j < n)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	if (j < n)
-		dest[i] = '\0';
-	return (s);
+y = 0;
+g = 0;
+while (dest[y] != '\0')
+y++;
+while (src[g] != '\0' && g < n)
+{
+dest[y] = src[g];
+y++;
+g++;
+}
+if (g < n)
+dest[y] = '\0';
+return (s);
 }
 
 /**
- **_strchr - locates a character in a string
- *@s: the string to be parsed
- *@c: the character to look for
- *Return: (s) a pointer to the memory area s
- */
+**_strchr - it locates a character in a string
+*@s: it is the string to be parsed
+*@c: it is the character to look for
+*Return: (s) pointer to the memory area s
+*/
 char *_strchr(char *s, char c)
 {
-	do {
-		if (*s == c)
-			return (s);
-	} while (*s++ != '\0');
+do {
+if (*s == c)
+return (s);
+} while (*s++ != '\0');
 
-	return (NULL);
+return (NULL);
 }
