@@ -41,7 +41,7 @@ for (y = 0; node; node = node->next, y++)
 str = malloc(_strlen(node->str) + 1);
 if (!str)
 {
-for (j = 0; l < y; l++)
+for (l = 0; l < y; l++)
 free(strs[l]);
 free(strs);
 return (NULL);
