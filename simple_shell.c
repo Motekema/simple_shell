@@ -10,7 +10,6 @@
 
 int hsh(info_t *info, char **av)
 {
-
 ssize_t h = 0;
 int builtin_rest = 0;
 while (h != -1 && builtin_rest != -2)
@@ -88,7 +87,6 @@ return (built_in_rest);
 
 void find_cmd(info_t *info)
 {
-
 char *path = NULL;
 int j, f;
 info->path = info->argv[0];
