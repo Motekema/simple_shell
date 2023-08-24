@@ -76,6 +76,7 @@ struct liststr *next;
 * @argv: array of strings generated from arg
 * @path: an string path for the current command
 */
+
 typedef struct passinfo
 {
 char **environ;
@@ -95,7 +96,7 @@ char *path;
 int argc;
 unsigned int line_count;
 
-char **cmd_buf; /* point to cmd_buf_type ; chain buffer,memory mangement */
+char **cmd_buf; /* point to cmd_buf_type ; chain buffer, storage mangement */
 int cmd_buf_type;
 int readfd;
 int histcount;
