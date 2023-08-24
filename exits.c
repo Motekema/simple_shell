@@ -16,7 +16,7 @@ y = 0;
 while (src[y] != '\0' && y < n - 1)
 {
 dest[y] = src[y];
-i++;
+y++;
 }
 if (y < n)
 {
